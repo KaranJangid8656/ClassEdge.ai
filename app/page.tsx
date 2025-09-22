@@ -59,11 +59,11 @@ export default function Home() {
             </Link>
 
             <nav className="hidden md:flex items-center gap-8">
-              <Link href="#features" className="text-gray-600 hover:text-gray-900 text-base font-normal">
-                Features
+              <Link href="/" className="text-blue-600 font-medium text-base">
+                Home
               </Link>
-              <Link href="#pricing" className="text-gray-600 hover:text-gray-900 text-base font-normal">
-                Pricing
+              <Link href="/dashboard" className="text-gray-600 hover:text-gray-900 text-base font-normal">
+                Dashboard
               </Link>
               <Link href="#resources" className="text-gray-600 hover:text-gray-900 text-base font-normal">
                 Resources
