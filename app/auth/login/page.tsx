@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { CalendarIcon, Eye, EyeOff, Shield, Users, BookOpen } from "lucide-react"
+import Image from "next/image"
 import { useState } from "react"
 import Link from "next/link"
 
@@ -39,48 +40,51 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        {/* Logo and Header */}
-        <div className="text-center mb-8">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
-              <CalendarIcon className="w-7 h-7 text-white" />
-            </div>
-            <span className="text-2xl font-bold text-gray-900">ClassEdge</span>
-          </div>
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">Welcome Back</h1>
-          <p className="text-gray-600">Sign in to access your timetable dashboard</p>
-        </div>
-
-        <Card className="shadow-lg border-0">
-          <CardHeader className="space-y-1">
-            <CardTitle className="text-xl text-center">Sign In</CardTitle>
-            <CardDescription className="text-center">Choose your role and enter your credentials</CardDescription>
-          </CardHeader>
-          <CardContent>
+    <div className="min-h-screen bg-white flex">
+      <div className="w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-0 h-screen">
+          {/* Left Side - Login Content */}
+          <div className="w-full flex items-center justify-center bg-white px-8 py-8 overflow-y-auto">
+            <div className="w-full max-w-md mx-auto no-scrollbar overflow-y-auto">
+              {/* Header */}
+              <div className="mb-8">
+                <div className="flex items-center justify-center gap-4 mb-2 -ml-8">
+                  <div className="relative w-32 h-32">
+                    <Image
+                      src="https://res.cloudinary.com/dx9bvma03/image/upload/v1758392290/classedge_logo_dewaof.jpg"
+                      alt="ClassEdge Logo"
+                      fill
+                      className="object-contain"
+                      priority
+                      quality={100}
+                    />
+                  </div>
+                  <h1 className="text-3xl font-bold text-gray-900">Welcome Back</h1>
+                </div>
+                <p className="text-gray-600 text-center">Choose your role and enter your credentials</p>
+              </div>
             <form onSubmit={handleLogin} className="space-y-4">
               {/* User Type Selection */}
               <div className="space-y-2">
                 <Label>I am a</Label>
                 <Select value={userType} onValueChange={setUserType}>
-                  <SelectTrigger>
+                  <SelectTrigger className="cursor-pointer">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="student">
+                    <SelectItem value="student" className="cursor-pointer">
                       <div className="flex items-center space-x-2">
                         <BookOpen className="w-4 h-4" />
                         <span>Student</span>
                       </div>
                     </SelectItem>
-                    <SelectItem value="faculty">
+                    <SelectItem value="faculty" className="cursor-pointer">
                       <div className="flex items-center space-x-2">
                         <Users className="w-4 h-4" />
                         <span>Faculty</span>
                       </div>
                     </SelectItem>
-                    <SelectItem value="admin">
+                    <SelectItem value="admin" className="cursor-pointer">
                       <div className="flex items-center space-x-2">
                         <Shield className="w-4 h-4" />
                         <span>Administrator</span>
@@ -127,7 +131,7 @@ export default function LoginPage() {
                     type="button"
                     variant="ghost"
                     size="sm"
-                    className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                    className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent cursor-pointer"
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -143,7 +147,7 @@ export default function LoginPage() {
                     Remember me
                   </Label>
                 </div>
-                <Link href="/auth/forgot-password" className="text-sm text-blue-600 hover:underline">
+                <Link href="/auth/forgot-password" className="text-sm text-blue-600 hover:underline cursor-pointer">
                   Forgot password?
                 </Link>
               </div>
@@ -156,7 +160,7 @@ export default function LoginPage() {
               )}
 
               {/* Sign In Button */}
-              <Button type="submit" className="w-full" disabled={isLoading}>
+              <Button type="submit" className="w-full cursor-pointer" disabled={isLoading}>
                 {isLoading ? "Signing in..." : "Sign In"}
               </Button>
             </form>
@@ -178,6 +182,7 @@ export default function LoginPage() {
                 <Button
                   variant="outline"
                   size="sm"
+                  className="cursor-pointer"
                   onClick={() => {
                     setUserType("student")
                     window.location.href = "/student"
@@ -188,6 +193,7 @@ export default function LoginPage() {
                 <Button
                   variant="outline"
                   size="sm"
+                  className="cursor-pointer"
                   onClick={() => {
                     setUserType("faculty")
                     window.location.href = "/faculty"
@@ -198,6 +204,7 @@ export default function LoginPage() {
                 <Button
                   variant="outline"
                   size="sm"
+                  className="cursor-pointer"
                   onClick={() => {
                     setUserType("admin")
                     window.location.href = "/admin"
@@ -212,18 +219,34 @@ export default function LoginPage() {
             <div className="text-center mt-6">
               <p className="text-sm text-gray-600">
                 Don't have an account?{" "}
-                <Link href="/auth/register" className="text-blue-600 hover:underline">
+                <Link href="/auth/register" className="text-blue-600 hover:underline cursor-pointer">
                   Contact your administrator
                 </Link>
               </p>
             </div>
-          </CardContent>
-        </Card>
 
-        {/* Footer */}
-        <div className="text-center mt-8 text-sm text-gray-500">
-          <p>© 2024 ClassEdge. All rights reserved.</p>
-          <p>Secure timetabling for educational institutions</p>
+              {/* Footer */}
+              <div className="text-center mt-8 text-sm text-gray-500">
+                <p>© 2024 ClassEdge. All rights reserved.</p>
+                <p>Secure timetabling for educational institutions</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side - Full Image Coverage */}
+          <div className="w-full h-screen relative overflow-hidden">
+            <div className="absolute inset-0">
+              <Image
+                src="https://res.cloudinary.com/dx9bvma03/image/upload/v1758474633/5962830_3094910_nakl1g.jpg"
+                alt="Login Background"
+                fill
+                style={{ objectPosition: "55% center" }}
+                className="object-cover"
+                priority
+                quality={100}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

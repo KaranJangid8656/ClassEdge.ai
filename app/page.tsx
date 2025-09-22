@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Menu } from "lucide-react"
 
@@ -76,7 +76,7 @@ export default function Home() {
               Login
             </Link>
             <Link href="/auth/register">
-              <Button className="bg-blue-600 hover:bg-blue-700 text-base px-6">Get Started</Button>
+              <Button className="bg-blue-600 hover:bg-blue-700 text-base px-6 cursor-pointer">Get Started</Button>
             </Link>
           </div>
 
@@ -114,11 +114,11 @@ Smarter schedules, fewer conflicts, better learning
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <Link href="/auth/register">
-              <Button size="lg" className="bg-gray-900 hover:bg-gray-800 text-white px-8 w-full sm:w-auto">
+              <Button size="lg" className="bg-gray-900 hover:bg-gray-800 text-white px-8 w-full sm:w-auto cursor-pointer">
                 Get Started
               </Button>
             </Link>
-            <Button variant="ghost" size="lg" className="text-gray-600 flex items-center gap-2 w-full sm:w-auto">
+            <Button variant="ghost" size="lg" className="text-gray-600 flex items-center gap-2 w-full sm:w-auto cursor-pointer">
               <Play className="w-4 h-4" />
               Watch video
             </Button>
@@ -505,42 +505,220 @@ Accurate inputs ensure the system generates conflict-free and optimized timetabl
             </Link>
           </div>
 
-          <div className="mt-12 md:mt-16 text-center">
-            <div className="bg-gray-50 rounded-2xl p-6 md:p-8">
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">Built for Modern Education</h3>
-              <p className="text-gray-600 mb-6 max-w-3xl mx-auto text-sm md:text-base">
-                Our platform is designed with NEP 2020 guidelines in mind, featuring role-based dashboards, responsive
-                design, and accessibility standards. From small schools to large universities, we scale with your
-                institution's needs.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-                <Link href="/generator">
-                  <Button className="bg-blue-600 hover:bg-blue-700 w-full sm:w-auto">Explore Features</Button>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section id="pricing" className="px-4 py-12 md:py-20 bg-gray-50 -scroll-mt-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 mb-4">
+              Simple, transparent <span className="text-blue-600">pricing</span>
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 px-4">
+              Choose the perfect plan for your institution. Start free and scale as you grow.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+            {/* Free Plan */}
+            <Card className="border-2 border-gray-100 relative">
+              <CardHeader className="text-center p-6">
+                <CardTitle className="text-xl font-bold text-gray-900 mb-2">Free Plan</CardTitle>
+                <p className="text-gray-600 text-sm mb-4">Perfect for Students & Faculty</p>
+                <div className="mb-4">
+                  <span className="text-3xl font-bold text-gray-900">Free</span>
+                </div>
+                <p className="text-xs text-gray-500">Completely free access for all students and faculty members</p>
+              </CardHeader>
+              <CardContent className="p-6 pt-0">
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500" />
+                    <span className="text-sm text-gray-600">AI-generated timetables</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500" />
+                    <span className="text-sm text-gray-600">Elective/course management</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500" />
+                    <span className="text-sm text-gray-600">PDF/Excel export</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500" />
+                    <span className="text-sm text-gray-600">Basic conflict detection</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500" />
+                    <span className="text-sm text-gray-600">Access to personal dashboards</span>
+                  </li>
+                </ul>
+                <Link href="/auth/register">
+                  <Button className="w-full bg-gray-900 hover:bg-gray-800 cursor-pointer">Start Using Free</Button>
                 </Link>
-                <Button variant="outline" className="w-full sm:w-auto bg-transparent">
-                  View Demo
-                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Institutional Plan */}
+            <Card className="border-2 border-blue-500 relative shadow-lg">
+              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <Badge className="bg-blue-600 text-white px-4 py-1">Most Popular</Badge>
               </div>
-            </div>
+              <CardHeader className="text-center p-6">
+                <CardTitle className="text-xl font-bold text-gray-900 mb-2">Institutional Plan</CardTitle>
+                <p className="text-gray-600 text-sm mb-4">Perfect for Schools & Colleges</p>
+                <div className="mb-4">
+                  <span className="text-3xl font-bold text-gray-900">Custom</span>
+                </div>
+                <p className="text-xs text-gray-500">For institutions that want advanced features and admin control</p>
+              </CardHeader>
+              <CardContent className="p-6 pt-0">
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500" />
+                    <span className="text-sm text-gray-600">Multi-program timetable generation</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500" />
+                    <span className="text-sm text-gray-600">Scenario simulation & future semester planning</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500" />
+                    <span className="text-sm text-gray-600">NEP 2020 alignment tools</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500" />
+                    <span className="text-sm text-gray-600">ERP/LMS integration</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500" />
+                    <span className="text-sm text-gray-600">Priority support</span>
+                  </li>
+                </ul>
+                <Link href="/contact">
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700 cursor-pointer">Contact Us / Start Trial</Button>
+                </Link>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="px-4 py-12 md:py-20 bg-gradient-to-br from-blue-600 to-purple-700 text-white text-center">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-4">Get started today</h2>
-          <p className="text-lg md:text-xl text-blue-100 mb-6 md:mb-8 px-4">
-            It's time to take control of your school schedule. Try ClassEdge and turn hours of manual planning into
-            just minutes of smart automation.
-          </p>
-          <Link href="/auth/register">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-6 md:px-8 w-full sm:w-auto">
-              Start Free Trial
-            </Button>
-          </Link>
+      {/* Footer Section */}
+      <footer className="border-t border-gray-100 bg-white">
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {/* Company Info */}
+            <div className="space-y-4">
+              <div className="relative w-24 h-24">
+                <Image
+                  src="https://res.cloudinary.com/dx9bvma03/image/upload/v1758392290/classedge_logo_dewaof.jpg"
+                  alt="ClassEdge Logo"
+                  fill
+                  sizes="(max-width: 768px) 96px, 96px"
+                  className="object-contain"
+                />
+              </div>
+              <p className="text-gray-600 text-sm">
+                Making academic scheduling smarter and more efficient for educational institutions.
+              </p>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-4">Quick Links</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="#features" className="text-gray-600 hover:text-gray-900 text-sm">
+                    Features
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/pricing" className="text-gray-600 hover:text-gray-900 text-sm">
+                    Pricing
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/demo" className="text-gray-600 hover:text-gray-900 text-sm">
+                    Request Demo
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="text-gray-600 hover:text-gray-900 text-sm">
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Solutions */}
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-4">Solutions</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/student" className="text-gray-600 hover:text-gray-900 text-sm">
+                    For Students
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/faculty" className="text-gray-600 hover:text-gray-900 text-sm">
+                    For Faculty
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/admin" className="text-gray-600 hover:text-gray-900 text-sm">
+                    For Administrators
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/resources" className="text-gray-600 hover:text-gray-900 text-sm">
+                    Resources
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-4">Contact</h3>
+              <ul className="space-y-3">
+                <li>
+                  <a href="mailto:info@classedge.com" className="text-gray-600 hover:text-gray-900 text-sm">
+                    ClassEdge@gmail.com
+                  </a>
+                </li>
+                <li>
+                  <a href="tel:+917357701049" className="text-gray-600 hover:text-gray-900 text-sm">
+                    +91 84317701
+                  </a>
+                </li>
+                <li className="text-gray-600 text-sm">
+                  Hebbal,
+                  <br />
+                  Bengaluru, Karnataka 
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-gray-100">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <p className="text-sm text-gray-600">
+                © {new Date().getFullYear()} ClassEdge. All rights reserved.
+              </p>
+              <div className="flex space-x-6">
+                <Link href="/privacy" className="text-sm text-gray-600 hover:text-gray-900">
+                  Privacy Policy
+                </Link>
+                <Link href="/terms" className="text-sm text-gray-600 hover:text-gray-900">
+                  Terms of Service
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
+      </footer>
     </div>
   )
 }
