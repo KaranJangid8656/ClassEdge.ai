@@ -15,7 +15,7 @@ import Link from "next/link"
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false)
-  const [userType, setUserType] = useState("student")
+  const [userType, setUserType] = useState("student") 
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
 
