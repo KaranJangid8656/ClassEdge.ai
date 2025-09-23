@@ -62,9 +62,7 @@ export default function Home() {
               <Link href="/" className="text-blue-600 font-medium text-base">
                 Home
               </Link>
-              <Link href="/dashboard" className="text-gray-600 hover:text-gray-900 text-base font-normal">
-                Dashboard
-              </Link>
+              <Link href="/admin" className="text-gray-600 hover:text-gray-900 text-base font-normal">Dashboard</Link>
               <Link href="#resources" className="text-gray-600 hover:text-gray-900 text-base font-normal">
                 Resources
               </Link>

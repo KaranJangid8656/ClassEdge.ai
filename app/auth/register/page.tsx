@@ -27,8 +27,9 @@ export default function RegisterPage() {
 
     // Simulate registration process
     setTimeout(() => {
-      setIsLoading(false)
-      setSuccess(true)
+              setIsLoading(false)
+              setSuccess(true)
+              try { localStorage.setItem("role", userType === "faculty" ? "faculty" : "student") } catch {}
     }, 2000)
   }
 

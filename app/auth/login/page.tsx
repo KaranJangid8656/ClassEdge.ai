@@ -20,7 +20,7 @@ export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
 
-  const handleLogin = async (e: React.FormEvent) => {
+          const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
     setError("")
@@ -30,10 +30,13 @@ export default function LoginPage() {
       setIsLoading(false)
       // Redirect based on user type
       if (userType === "admin") {
+                try { localStorage.setItem("role", "admin") } catch {}
         window.location.href = "/admin"
       } else if (userType === "faculty") {
+                try { localStorage.setItem("role", "faculty") } catch {}
         window.location.href = "/faculty"
       } else {
+                try { localStorage.setItem("role", "student") } catch {}
         window.location.href = "/student"
       }
     }, 1500)
@@ -69,6 +72,7 @@ export default function LoginPage() {
                 <Label>I am a</Label>
                 <Select value={userType} onValueChange={setUserType}>
                   <SelectTrigger className="cursor-pointer">
+                    
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
